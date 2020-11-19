@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+    build:
+        docker:
+            - image: hashicorp/terraform:0.12.29
+        steps:
+            - checkout
+            - run:
+                name: Terraform Version
+                command: terraform version
+            - run:
+                name: Terraform Check Syntax
+                command: terraform fmt -check=true -diff
