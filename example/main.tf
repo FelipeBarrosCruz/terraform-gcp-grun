@@ -3,4 +3,5 @@ module "grun_example" {
   project = local.project
   region  = local.region
   name    = local.name
+  envs    = local.envs
 }
