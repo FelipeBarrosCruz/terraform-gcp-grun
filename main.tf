@@ -13,13 +13,18 @@ resource "google_cloud_run_service" "default" {
     spec {
       containers {
         image = "gcr.io/${var.project}/${var.name}"
-        env {
-          name  = "NODE_ENV"
-          value = "production"
+
+        dynamic "env" {
+          for_each = var.envs
+
+          content {
+            name  = env.key
+            value = env.value
+          }
         }
       }
     }
   }
 
-  depends_on = [google_project_service.run]
+
 }
