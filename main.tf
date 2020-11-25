@@ -11,6 +11,7 @@ resource "google_cloud_run_service" "default" {
 
   template {
     spec {
+      service_account_name = var.service_account_name
       containers {
         image = "gcr.io/${var.project}/${var.name}"
 

@@ -16,3 +16,8 @@ variable "envs" {
   description = "The map of environemnt variables"
   default     = {}
 }
+
+variable "service_account_name" {
+  type        = string
+  description = "The service account name to authorize the google_cloud_run_service"
+}
